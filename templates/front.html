@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <form action="{{ url_for('predict')}}" method="post">
+                <h1>Predictive analysis</h1>
+                <table>
+                    <tr>
+                        <td><label for="first">Year</label></td>
+                        <td><input id="first" name="Year" type="number " required="required" class="wdt"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="second">Is the Showroom Price?(In lakhs)</label></td>
+                        <td><input id="second" name="Present_Price" required="required" class="wdt"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="third">How Many Kilometers Drived?</label></td>
+                        <td><input id="third" name="Kms_Driven" required="required" class="wdt"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fourth">How much owners previously had the car(0 or 1 or 3) ?</label></td>
+                        <td><input id="fourth" name="Owner" required="required" class="wdt"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fuel">What Is the Fuel type?</label></td>
+                        <td>
+                            <select name="Fuel_Type_Petrol" id="fuel" required="required" class="wdt">
+                                <option value="Petrol">Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Diesel">CNG</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="resea">Are you A Dealer or Individual</label></td>
+                        <td>
+                            <select name="Seller_Type_Individual" id="resea" required="required" class="wdt">
+                                <option value="Dealer">Dealer</option>
+                                <option value="Individual">Individual</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="research">Transmission type</label></td>
+                        <td>
+                            <select name="Transmission_Mannual" id="research" required="required" class="wdt">
+                                <option value="Mannual">Manual Car</option>
+                                <option value="Automatic">Automatic Car</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>                
+                <br><br>
+                <button id="sub" type="submit ">Calculate the Selling Price</button>
+                <br>
+            </form>
+            <br><br><h3>{{ prediction_text }}<h3>
+        </div>
+        <style>
+            body{
+                color: rgb(233, 134, 20);
+                text-align: center;
+            }
+            h1{
+                text-decoration-line: underline;
+            }
+            table{
+                margin: auto;
+                text-align: left;
+            }
+            .wdt{
+                width: 100%;
+                text-align: center;
+            }
+            option{
+                margin: auto;
+            }
+        </style>
+    </body>
+</html>
